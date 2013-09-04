@@ -70,9 +70,9 @@ public class FeatureRetrieve {
 			StringBuilder out = new StringBuilder();
 			for (int i = 0; i < featureNumber; i++) {
 				if (features[i] == true)
-					out.append("1 ");
+					out.append("1,");
 				else
-					out.append("0 ");
+					out.append("0,");
 			}
 			if (values.next().get() == 0)
 				out.append("0");
@@ -180,12 +180,28 @@ public class FeatureRetrieve {
 			while (line != null) {
 				if (line.contains("div id=\"resultStats\"")) {
 					int index = line.indexOf("div id=\"resultStats\"");
-					line = line.substring(index + 23);
-					line = line.trim();
-					index = line.indexOf(" ");
+					line = line.substring(index + 20);
+					index = line.indexOf("<nobr>");
 					line = line.substring(0, index);
+					StringBuilder sb = new StringBuilder(line);
+					for (int i = 0; i < sb.length(); i++) {
+						if (sb.charAt(i) != '0' && sb.charAt(i) != '1'
+								&& sb.charAt(i) != '2' && sb.charAt(i) != '3'
+								&& sb.charAt(i) != '4' && sb.charAt(i) != '5'
+								&& sb.charAt(i) != '6' && sb.charAt(i) != '7'
+								&& sb.charAt(i) != '8' && sb.charAt(i) != '9') {
+							sb.setCharAt(i, ' ');
+						}
+					}
+					line = sb.toString().trim();
 					line = line.replace(",", "");
-					long searchNumber = Long.parseLong(line.trim());
+					line = line.replace(" ", "");
+					long searchNumber = 6000;
+					try {
+						searchNumber = Long.parseLong(line.trim());
+					} catch (Exception e) {
+
+					}
 					System.out.println(searchNumber);
 					if (searchNumber > 5000)
 						return false;

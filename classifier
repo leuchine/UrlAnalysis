@@ -1,0 +1,4 @@
+hadoop fs -mkdir testdata
+mahout org.apache.mahout.classifier.df.tools.Describe -p /output3/part-00000 -f testdata/test.info -d 8 C L
+mahout org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d /output3/part-00000 -ds testdata/test.info -sl 5 -p -t 50 -o testdata/model
+mahout org.apache.mahout.classifier.df.mapreduce.TestForest -i /output3/part-00000 -ds testdata/test.info -m testdata/model -a -mr -o testdata/predictions

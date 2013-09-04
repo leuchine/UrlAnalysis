@@ -53,5 +53,12 @@
 	<classpathentry kind="lib" path="/home/leuchine/hadoop/hadoop-core-1.1.2.jar"/>
 	<classpathentry kind="lib" path="/home/leuchine/hadoop/hadoop-client-1.1.2.jar"/>
 	<classpathentry kind="lib" path="/home/leuchine/hadoop/hadoop-ant-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/leuchine/hadoop/commons-cli-2.0.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mahout-buildtools"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mahout-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mahout-examples"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mahout-integration"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mahout-math"/>
+	<classpathentry kind="lib" path="/home/leuchine/hadoop/guava-14.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
